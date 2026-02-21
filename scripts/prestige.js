@@ -11,8 +11,9 @@ function prestige() {
 }
 
 function getBaseReductionCost(n) {
-  if (game.ord.b <= 10) return nD(Infinity) // you cant reduce the base any further
-
+  if (game.ord.b <= 6)  { 
+	return nD(Infinity) } // you can't reduce the base any further	
+ else {
   const ppGagn = [nD(100), nD(1000), nD(1e4), nD(5e4), nD(2.5e5), nD(1e6), nD(5e6), nD(2e7), nD(7.5e7), nD(2e8), nD(6e8), nD(2e9)]
 
   if (ppGagn[n] !== undefined) return ppGagn[n] // values
@@ -38,7 +39,8 @@ function getBaseReductionCost(n) {
 	if (n < 85) return nD("e1.27e7").pow(D.pow(1.42, n.minus(82).pow(0.79)))
 	if (n < 86) return nD("e3.4e7")
 	if (n < 89) return nD("e6e8").pow(D.pow(2.45, n.minus(86).pow(0.625)))
-	return nD("e1.06e11")
+	if (n < 94) return nD("e1.06e11").pow(2.8)
+ }
 }
 
 function reduceBase(idk = nD(1)) {
