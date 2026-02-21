@@ -37,11 +37,11 @@ class Ordinal {
   }
 
   get stringWithBase() {
-    return `${this.string(4)}&nbsp;[${this.b}]`
+    return `${this.string(10)}&nbsp;[${this.b}]`
   }
 
 
-  toNumberWithBase(b, length = 4) {
+  toNumberWithBase(b, length = 10) {
 		if (this.n.isNaN()) return nD(10)
     if (this.n.eq(0)) return this.n
     const ordLevel = ExpantaNum.floor(this.n.logBase(this.b))
